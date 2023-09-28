@@ -1,9 +1,7 @@
 FROM nginx
 
-COPY wrapper.sh /
+COPY index.html /usr/share/nginx/html
 
-RUN chmod +x /wrapper.sh
+EXPOSE 80
 
-COPY html /usr/share/nginx/html
-
-CMD ["./wrapper.sh"]
+CMD ["nginx", "-g", "daemon off;"]
